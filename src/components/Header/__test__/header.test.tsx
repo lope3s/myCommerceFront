@@ -8,3 +8,15 @@ it("renders without crashing", () => {
     ReactDOM.render(<Header />, div);
     ReactDOM.unmountComponentAtNode(div);
 });
+
+//test the user input and state change https://testing-library.com/docs/ecosystem-user-event/
+
+it("receives the input value", () => {
+    const { getByTestId } = render(<Header />);
+
+    const input = getByTestId("input");
+
+    input.innerText = "pink shirt";
+
+    expect(input);
+});

@@ -26,16 +26,52 @@ export const Logo = styled.div`
     svg {
         font-size: 2rem;
     }
+
+    @media (hover: hover) {
+        :hover {
+            cursor: pointer;
+        }
+    }
+`;
+
+export const InputBox = styled.div`
+    flex: 5;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    div {
+        position: absolute;
+        z-index: 1;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-left: 1px solid #00000050;
+        height: 70%;
+        width: 3rem;
+
+        svg {
+            font-size: 1.5rem;
+            color: #00000050;
+        }
+
+        @media (hover: hover) {
+            :hover {
+                cursor: pointer;
+            }
+        }
+    }
 `;
 
 export const Input = styled.input`
     all: unset;
-    flex: 5;
-    background-color: #f8edeb;
+    width: 100%;
     height: 50px;
+    background-color: #f8edeb;
     border-radius: 50px;
     border: none;
-    box-shadow: 1px 2px 5px 0px #000;
+    box-shadow: 0px 2px 5px 0px #000;
     text-indent: 15px;
 `;
 
