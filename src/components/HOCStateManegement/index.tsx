@@ -4,8 +4,9 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import { IModelStates, IModelActions, InitialData } from "../../types";
 import { useLazyQuery } from "@apollo/client";
 import { GET_INITIAL_DATA } from "../../gqlSchemas";
+import { Header } from "../";
 
-export const HOCStateManegement: React.FC = ({ children }) => {
+const HOCStateManegement: React.FC = ({ children }) => {
     const [getInitialData, { data, error }] =
         useLazyQuery<InitialData>(GET_INITIAL_DATA);
     const isLoading = useStoreState<IModelStates, boolean>(
@@ -29,8 +30,13 @@ export const HOCStateManegement: React.FC = ({ children }) => {
 
         if (!localInitialData) {
             getInitialData();
+            return;
         }
+
+        setIsLoading(false);
     }, []);
 
-    return <>{isLoading ? <LoadingPage /> : children}</>;
+    return <>{isLoading ? <LoadingPage /> : <Header>{children}</Header>}</>;
 };
+
+export default HOCStateManegement;
