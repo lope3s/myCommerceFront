@@ -1,11 +1,13 @@
 import { HeaderContainer, InputBox, Input, Logo, ButtonsBox } from "./style";
-import React from "react";
+import React, { useState } from "react";
 import { BsShop, BsListUl } from "react-icons/bs";
 import { MdLogin } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import { MinimalistIconifiedButton } from "..";
 
 const Header: React.FC = ({ children }) => {
+    const [inputVale, setInputValue] = useState("");
+
     return (
         <>
             <HeaderContainer>
@@ -16,9 +18,19 @@ const Header: React.FC = ({ children }) => {
                 <InputBox>
                     <Input
                         placeholder="Search for my next item"
-                        data-testid="input"
+                        value={inputVale}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        onKeyPress={(e) => {
+                            if (e.key === "Enter") {
+                                console.log(inputVale);
+                            }
+                        }}
                     />
-                    <div>
+                    <div
+                        onClick={() => {
+                            console.log(inputVale);
+                        }}
+                    >
                         <BiSearch />
                     </div>
                 </InputBox>

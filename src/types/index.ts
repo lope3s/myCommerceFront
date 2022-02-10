@@ -5,6 +5,8 @@ import type {
     Category,
     CurrencieConversion,
     JoinedCategoryData,
+    ItemData,
+    ItemCategorySearch,
 } from "./genericTypes";
 
 export {
@@ -15,4 +17,6 @@ export {
     CurrencieConversion,
     IModelStates,
     IModelActions,
+    ItemData,
+    ItemCategorySearch,
 };
